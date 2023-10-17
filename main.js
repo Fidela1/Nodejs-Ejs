@@ -24,18 +24,17 @@ app.use(sesssion({
     resave: false,
 })
 )
-app.use((req, res, next) => {
-    req.locals.message = req.session.message;
-    delete req.session.message;
-    next();
-});
+// app.use((req, res, next) => {
+//     req.locals.message = req.session.message;
+//     delete req.session.message;
+//     next();
+// });
 // set template engine
 app.set('view engine', 'ejs');
 
 
-app.get('/', (req, res) =>{
-    res.send("Hello world"); 
- })
+// route prefix
+app.use("", require("./routes/routes"))
 
 app.listen(PORT, () =>{
     console.log(`server started at http://localhost:${PORT}`);
