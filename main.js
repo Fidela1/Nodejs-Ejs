@@ -31,11 +31,10 @@ app.use(sesssion({
 // });
 // set template engine
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public'));
 
 // route prefix
 app.use("", require("./routes/routes"))
-app.use('/public', express.static('public'));
 
 app.listen(PORT, () =>{
     console.log(`server started at http://localhost:${PORT}`);
