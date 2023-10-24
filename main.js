@@ -3,7 +3,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const sesssion = require('express-session');
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -24,18 +23,12 @@ app.use(sesssion({
     resave: false,
 })
 )
-// app.use((req, res, next) => {
-//     req.locals.message = req.session.message;
-//     delete req.session.message;
-//     next();
-// });
-// set template engine
-app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 // route prefix
 app.use("", require("./routes/routes"))
-app.use('/public', express.static('public'));
 
 app.listen(PORT, () =>{
     console.log(`server started at http://localhost:${PORT}`);
