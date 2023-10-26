@@ -20,3 +20,65 @@
   background-color: #ddd;
   color: black;
 }
+.container{
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  margin-top: 40PX;
+}
+
+.container h2{
+  background-color: rgb(88, 88, 245);
+  padding: 10px;
+}
+.addUser label{
+  display: block;
+  padding-left: 20px;
+}
+
+.addUser input{
+  display: block;
+  margin-left: 20px;
+  width: 350px;
+  height: 35px;
+  border-radius: 3px;
+  border-style: none;
+  margin-bottom: 15px;
+  border: 1px solid silver; 
+}
+.addUser button {
+  background-color: rgb(88, 88, 245);
+  margin-left: 20px;
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+  border-style: none;
+  margin-bottom: 15px;
+}
+table{
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 75%;
+  border-collapse: collapse;
+  background-color: white;
+}
+thead th {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px;
+    text-align: center;
+}
+tbody td {
+  background-color: #f0eded; 
+  color: black; 
+  padding: 10px;
+  text-align: center;
+}
+.fa-pen-to-square{
+ color: rgb(35, 126, 13);
+}
+.fa-trash{
+  color: rgb(241, 44, 44);
+}
