@@ -30,8 +30,9 @@
 }
 
 .container h2{
-  background-color: rgb(88, 88, 245);
+  background-color: rgb(29, 29, 250);
   padding: 10px;
+  color: white;
 }
 .addUser label{
   display: block;
@@ -49,13 +50,14 @@
   border: 1px solid silver; 
 }
 .addUser button {
-  background-color: rgb(88, 88, 245);
+  background-color: rgb(29, 29, 250);
   margin-left: 20px;
   width: 350px;
   height: 35px;
   border-radius: 5px;
   border-style: none;
   margin-bottom: 15px;
+  color: white;
 }
 table{
   margin-left: 10%;
