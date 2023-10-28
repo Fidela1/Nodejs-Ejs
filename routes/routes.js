@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users')
 const multer = require('multer');
+const path = require('path');
 
 // image upload
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, './uploads');
+        cb(null, path.join(__dirname, 'uploads'));
     },
     filename: function(req, file, cb) {
         cb(null, file.fieldname +"_"+ Date.now() +"_"+ file.originalname)
@@ -24,16 +25,16 @@ router.post('/add', upload, (req, res) =>{
         phone:req.body.phone,
         image: req.file.filename,
     });
-    user.save((err) => {
-        if(err){
-            res.json({message: err.message, type: 'danger'})
-        } else {
-            req.session.message = {
-                type: 'success',
-                message: 'User added successfully!'
-            };
-            res.redirect('/')
-        }
+    user.save()
+    .then(savedUser => {
+        req.session.message = {
+            type: 'success',
+            message: 'User added successfully!'
+        };
+        res.redirect('/');
+    })
+    .catch(err => {
+        res.json({ message: err.message, type: 'danger' });
     });
 })
 router.get("/", (req, res) =>{
