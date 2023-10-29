@@ -1,1 +1,1 @@
-# Ejs projects
+# Ejs project
