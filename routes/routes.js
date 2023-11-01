@@ -40,16 +40,16 @@ router.post('/add', upload, (req, res) =>{
 // Get all users route
 
 router.get("/", (req, res) =>{
-    User.find().exec((err, users) => {
-        if(err){
-            res.json({message: err.message })
-        } else {
-            res.render('index', {
-                title: 'Home Page',
-                users: users,
-            })
-        }
+    User.find()
+    .then(users => {
+        res.render('index', {
+            title: 'Home Page',
+            users: users,
+        });
     })
+    .catch(err => {
+        res.json({ message: err.message });
+    });
 })
 router.get("/add", (req, res) =>{
     res.render('add_users', { title: "Add Users" })
