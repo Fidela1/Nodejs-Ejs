@@ -37,8 +37,19 @@ router.post('/add', upload, (req, res) =>{
         res.json({ message: err.message, type: 'danger' });
     });
 })
+// Get all users route
+
 router.get("/", (req, res) =>{
-    res.render('index')
+    User.find().exec((err, users) => {
+        if(err){
+            res.json({message: err.message })
+        } else {
+            res.render('index', {
+                title: 'Home Page',
+                users: users,
+            })
+        }
+    })
 })
 router.get("/add", (req, res) =>{
     res.render('add_users', { title: "Add Users" })
