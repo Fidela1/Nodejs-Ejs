@@ -64,7 +64,7 @@ router.get('/edit/:id', (req, res) => {
       res.redirect('/');
     } else {
       res.render('edit_users', {
-        title: "Edit User",
+        title: "Edit user",
         user: user,
       });
     }
