@@ -29,9 +29,11 @@ app.use((req, res, next) => {
   delete req.session.message;
   next();
 })
+
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
+app.use(express.static("./routes/uploads"))
 // route prefix
 app.use("", require("./routes/routes"))
 
